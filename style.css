@@ -1,0 +1,106 @@
+body {
+  background:rgb(226, 234, 249);
+  margin: 0;
+}
+
+p,
+span,
+h1,
+label,
+button {
+  color: rgb(92, 92, 112);
+}
+
+#top {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  background-color: rgb(250, 253, 255);
+  box-shadow: rgba(92, 135, 255, 0.1) 0px 10px 50px;
+}
+
+/* title section  */
+#title {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 50%;
+  background: #9dc6ff;
+}
+
+#title > h1 {
+  font-size: 2.5em;
+  color: rgb(10, 63, 169);
+}
+
+#title > img {
+  width:250px;
+  max-width: 300px;
+}
+
+/* form section......................................  */
+
+#quoteForm {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+
+select {
+  border: 1.5px solid #e4e7fa;
+  border-radius: 3px;
+  outline: none;
+  margin-bottom: 12px;
+  transition: border 0.25s;
+  width: 100%;
+  min-height: 30px;
+  color: rgb(10, 63, 169);
+}
+
+.search {
+
+}
+
+.checkbox {
+  margin: 0;
+  width: 20px;
+}
+
+.checkboxText > span {
+  transition: color 0.25s;
+}
+
+.checkboxText:hover > span {
+  color: rgb(71, 116, 205);
+}
+
+button {
+  width: 100%;
+  padding: 5px 10px 5px 10px;
+  background-color: rgb(10, 63, 169);
+  color: #f6f7ff;
+  border: none;
+  border-radius: 3px;
+    min-height: 30px;
+}
+
+button:hover {
+  background-color: rgb(4, 54, 155);
+cursor: pointer;
+}
+
+
+/* factor .............................................. */
+
+
+#factor {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  display: none;
+}
