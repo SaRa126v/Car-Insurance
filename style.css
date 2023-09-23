@@ -1,6 +1,7 @@
 body {
   background:rgb(226, 234, 249);
   margin: 0;
+  user-select: none;
 }
 
 p,
@@ -15,6 +16,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-around;
+height: 100vh;
 
   background-color: rgb(250, 253, 255);
   box-shadow: rgba(92, 135, 255, 0.1) 0px 10px 50px;
@@ -22,12 +24,14 @@ button {
 
 /* title section  */
 #title {
-  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   display: flex;
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
   width: 50%;
+  height: 100vh;
   background: #9dc6ff;
 }
 
@@ -102,5 +106,5 @@ cursor: pointer;
   width: fit-content;
   display: flex;
   flex-direction: column;
-  display: none;
+display: none;
 }
