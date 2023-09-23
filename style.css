@@ -1,5 +1,5 @@
 body {
-  background:rgb(226, 234, 249);
+  background: rgb(226, 234, 249);
   margin: 0;
   user-select: none;
 }
@@ -15,8 +15,8 @@ button {
 #top {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-height: 100vh;
+  justify-content: center;
+  height: 100vh;
 
   background-color: rgb(250, 253, 255);
   box-shadow: rgba(92, 135, 255, 0.1) 0px 10px 50px;
@@ -28,7 +28,7 @@ height: 100vh;
   padding-right: 10px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   flex-direction: column;
   width: 50%;
   height: 100vh;
@@ -41,34 +41,39 @@ height: 100vh;
 }
 
 #title > img {
-  width:250px;
-  max-width: 300px;
+  width: 45vw;
+  min-width: 300px;
 }
 
 /* form section......................................  */
 
 #quoteForm {
-  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 50%;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
+form {
+  width: 80%;
+  font-size: 1.25em;
+}
+
+
 select {
+  font-size: .75em;
   border: 1.5px solid #e4e7fa;
   border-radius: 3px;
   outline: none;
   margin-bottom: 12px;
   transition: border 0.25s;
-  width: 100%;
-  min-height: 30px;
+  min-width: 100%;
+  min-height: 50px;
   color: rgb(10, 63, 169);
 }
 
-.search {
-
-}
 
 .checkbox {
   margin: 0;
@@ -84,27 +89,26 @@ select {
 }
 
 button {
+  font-size: 1em;
   width: 100%;
   padding: 5px 10px 5px 10px;
   background-color: rgb(10, 63, 169);
   color: #f6f7ff;
   border: none;
   border-radius: 3px;
-    min-height: 30px;
+  min-height: 40px;
 }
 
 button:hover {
   background-color: rgb(4, 54, 155);
-cursor: pointer;
+  cursor: pointer;
 }
 
-
 /* factor .............................................. */
-
 
 #factor {
   width: fit-content;
   display: flex;
   flex-direction: column;
-display: none;
+  display: none;
 }
