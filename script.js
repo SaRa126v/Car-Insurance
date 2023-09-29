@@ -61,22 +61,34 @@ generatorBtn.addEventListener("click", () => {
     chosenInsuranceT = 50;
   }
 
-  // remove the form
-  const form = document.querySelector("form");
-  form.style.display = "none";
+  // checkbox validation
+  if (!basic.checked && !complete.checked) {
+    const small = document.querySelector("small");
+    small.textContent = "Choose your insurance type."
+  } else {
+    // remove the form
+    const form = document.querySelector("form");
+    form.style.display = "none";
 
-  // show loading svg for a period of time
-  
-loading();
+    // show loading svg for a period of time
 
-  // give it values to generate quote after a sec
-  setTimeout(priceCalculator, 3000, chosenModel, chosenYear, chosenInsuranceT );
+    loading();
+
+    // give it values to generate quote after a sec
+    setTimeout(
+      priceCalculator,
+      3000,
+      chosenModel,
+      chosenYear,
+      chosenInsuranceT
+    );
+  }
 });
 
 // calculate final price..................................
 function priceCalculator(chosenModel, chosenYear, chosenInsuranceT) {
   // remove loading svg
-  document.querySelector('#loadingsvg').remove();
+  document.querySelector("#loadingsvg").remove();
 
   // show the factor
   const factor = document.querySelector("#factor");
@@ -120,17 +132,15 @@ function priceCalculator(chosenModel, chosenYear, chosenInsuranceT) {
 
 function loading() {
   const quoteForm = document.querySelector("#quoteForm");
-  quoteForm.insertAdjacentHTML("afterbegin", `<?xml version="1.0" encoding="utf-8"?>
+  quoteForm.insertAdjacentHTML(
+    "afterbegin",
+    `<?xml version="1.0" encoding="utf-8"?>
   <svg id="loadingsvg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: rgba(241, 242, 243, 0); display: block; shape-rendering: auto;" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
   <path d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50" fill="#0051a2" stroke="none">
     <animateTransform attributeName="transform" type="rotate" dur="1s" repeatCount="indefinite" keyTimes="0;1" values="0 50 51;360 50 51"></animateTransform>
-  </path></svg>`)
+  </path></svg>`
+  );
 }
-
-
-
-
-
 
 // calculate with OOP......................................
 // class Quote {

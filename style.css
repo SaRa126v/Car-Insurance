@@ -86,6 +86,9 @@ select {
   color: rgb(71, 116, 205);
 }
 
+.checkboxText:last-of-type {
+  margin-bottom: 10px;
+}
 button {
   font-size: 1em;
   width: 100%;
@@ -95,11 +98,16 @@ button {
   border: none;
   border-radius: 3px;
   min-height: 40px;
+  margin-top: 10px;
 }
 
 button:hover {
   background-color: rgb(4, 54, 155);
   cursor: pointer;
+}
+
+small {
+  color: rgb(227, 12, 12);
 }
 
 /* factor .............................................. */
@@ -137,3 +145,4 @@ svg {
   width: 100%;
   max-width: 300px;
 }
+
