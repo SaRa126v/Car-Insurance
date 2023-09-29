@@ -61,9 +61,8 @@ form {
   font-size: 1.25em;
 }
 
-
 select {
-  font-size: .75em;
+  font-size: 0.75em;
   border: 1.5px solid #e4e7fa;
   border-radius: 3px;
   outline: none;
@@ -73,7 +72,6 @@ select {
   min-height: 50px;
   color: rgb(10, 63, 169);
 }
-
 
 .checkbox {
   margin: 0;
@@ -111,4 +109,31 @@ button:hover {
   display: flex;
   flex-direction: column;
   display: none;
+  align-items: center;
+}
+
+#factor p {
+  font-size: 1.25em;
+  text-align: center;
+}
+
+#factor span {
+  font-size: 1.25em;
+  /* font-weight: bold; */
+}
+
+#factor #part2 p:last-of-type,
+#factor #part2 p:last-of-type span {
+  font-size:30px;
+  font-weight: bold;
+  color: #1e4f94;
+}
+
+#factor #part1 p {
+  color: #1e4f94;
+}
+
+svg {
+  width: 100%;
+  max-width: 300px;
 }

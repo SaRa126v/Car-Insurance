@@ -27,57 +27,124 @@ for (let i = currentYear; i >= minYear; i--) {
   document.querySelector("#years").appendChild(option);
 }
 
-//clicking on the btn.....................................
+// check only one checkbox................................
+const checkboxes = document.querySelectorAll(".checkbox");
+checkboxes.forEach((checkbox) => {
+  checkbox.addEventListener("change", () => {
+    if (basic.checked) {
+      complete.checked = false;
+      // *************************************
+    } else if (complete.checked) {
+      basic.checked = false;
+    }
+  });
+});
+
+//clicking on the btn (START)............................
 const generatorBtn = document.querySelector("#generator");
-generatorBtn.addEventListener('click', ()=>{
-  // car model value
-  const chosenModel = document.querySelector("#cars > option").value;
+generatorBtn.addEventListener("click", () => {
+  // 1) car model value
+  const chosenModel = document.querySelector("#cars").value;
 
-  // car year value
-  const chosenYear = document.querySelector("#years > option").value;
-  
-  // insurance type value
+  // 2) car year value
+  const chosenYear = document.querySelector("#years").value;
+
+  // 3) insurance type value
   let chosenInsuranceT = 0;
-  const basic = document.querySelector('#basic');
-  const complete = document.querySelector('#complete');
-  // check only one checkbox & get insuranceRatio
+  const basic = document.querySelector("#basic");
+  const complete = document.querySelector("#complete");
 
- const checkboxes = document.querySelectorAll('.checkbox');
- checkboxes.forEach((checkbox)=>{
-    checkbox.addEventListener('change', ()=>{
-        if (basic.checked) {
-            chosenInsuranceT = 30;
-            complete.checked = false ;
-              // ************************************* 
-       } else if (complete.checked) {
-            chosenInsuranceT =  50;
-            basic.checked = false ;
-           }
-     })
- })
+  // get insuranceRatio
+  if (basic.checked) {
+    chosenInsuranceT = 30;
+  } else if (complete.checked) {
+    chosenInsuranceT = 50;
+  }
 
- return [chosenModel, chosenYear, chosenInsuranceT]
+  // remove the form
+  const form = document.querySelector("form");
+  form.style.display = "none";
 
-})
+  // show loading svg for a period of time
+  
+loading();
+
+  // give it values to generate quote after a sec
+  setTimeout(priceCalculator, 3000, chosenModel, chosenYear, chosenInsuranceT );
+});
+
+// calculate final price..................................
+function priceCalculator(chosenModel, chosenYear, chosenInsuranceT) {
+  // remove loading svg
+  document.querySelector('#loadingsvg').remove();
+
+  // show the factor
+  const factor = document.querySelector("#factor");
+  factor.style.display = "flex";
+
+  // insurance ratio
+  const insuranceRatio = chosenInsuranceT;
+
+  // base price
+  const basePrice = 2000000;
+
+  // year difference
+  const yearDifference = currentYear - chosenYear;
+
+  // car ratio
+  let carRatio = 0;
+  switch (chosenModel) {
+    case "Pride":
+      carRatio = 1.15;
+      break;
+
+    case "Optima":
+      carRatio = 1.3;
+      break;
+
+    case "Porches":
+      carRatio = 1.8;
+      break;
+  }
+
+  // calculate final price
+  let price = 0;
+  price = basePrice * carRatio;
+  // price =
+  price = price * insuranceRatio;
+
+  // return price;
+}
+
+// loading ...............................................
+
+function loading() {
+  const quoteForm = document.querySelector("#quoteForm");
+  quoteForm.insertAdjacentHTML("afterbegin", `<?xml version="1.0" encoding="utf-8"?>
+  <svg id="loadingsvg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: rgba(241, 242, 243, 0); display: block; shape-rendering: auto;" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+  <path d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50" fill="#0051a2" stroke="none">
+    <animateTransform attributeName="transform" type="rotate" dur="1s" repeatCount="indefinite" keyTimes="0;1" values="0 50 51;360 50 51"></animateTransform>
+  </path></svg>`)
+}
+
+
+
+
 
 
 // calculate with OOP......................................
-class Quote {
-  constructor(model, year, insuranceType) {
-    this.model;
-    this.year;
-    this.insuranceType;
-  }
+// class Quote {
+//   constructor(model, year, insuranceType) {
+//     this.model;
+//     this.year;
+//     this.insuranceType;
+//   }
 
-test(){
-console.log(`car model is ${this.model}, car year is ${this.year} and insurance type is ${this.insuranceType}.`);
-}
-}
+// test(){
+// console.log(`car model is ${this.model}, car year is ${this.year} and insurance type is ${this.insuranceType}.`);
+// }
+// }
 
-const user = new Quote(chosenModel, chosenYear, chosenInsuranceT);
+// const user = new Quote(chosenModel, chosenYear, chosenInsuranceT);
 
-user.test();
-
-
-
-
+// user.test();
