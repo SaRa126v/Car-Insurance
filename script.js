@@ -61,11 +61,11 @@ generatorBtn.addEventListener("click", () => {
 
   // get insuranceRatio
   if (basic.checked) {
-    chosenInsuranceT = 30;
+    chosenInsuranceT = 0.3;
     // show it in factor
       document.querySelector("#type").textContent = "Basic";
   } else if (complete.checked) {
-    chosenInsuranceT = 50;
+    chosenInsuranceT = 0.5;
         // show it in factor
       document.querySelector("#type").textContent = "Complete";
   }
@@ -130,8 +130,13 @@ function priceCalculator(chosenModel, chosenYear, chosenInsuranceT) {
 
   // calculate final price
   let price = 0;
+  // base price
   price = basePrice * carRatio;
+
+  // 
   // price =
+
+  // insurance ratio
   price = price * insuranceRatio;
 
   // show the final price
