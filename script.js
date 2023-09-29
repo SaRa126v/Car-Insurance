@@ -45,9 +45,14 @@ const generatorBtn = document.querySelector("#generator");
 generatorBtn.addEventListener("click", () => {
   // 1) car model value
   const chosenModel = document.querySelector("#cars").value;
+  // show the chosen model
+  document.querySelector("#model").textContent = chosenModel;
 
   // 2) car year value
   const chosenYear = document.querySelector("#years").value;
+    // show the chosen year
+    document.querySelector("#year").textContent = chosenYear;
+
 
   // 3) insurance type value
   let chosenInsuranceT = 0;
@@ -57,14 +62,18 @@ generatorBtn.addEventListener("click", () => {
   // get insuranceRatio
   if (basic.checked) {
     chosenInsuranceT = 30;
+    // show it in factor
+      document.querySelector("#type").textContent = "Basic";
   } else if (complete.checked) {
     chosenInsuranceT = 50;
+        // show it in factor
+      document.querySelector("#type").textContent = "Complete";
   }
 
   // checkbox validation
   if (!basic.checked && !complete.checked) {
     const small = document.querySelector("small");
-    small.textContent = "Choose your insurance type."
+    small.textContent = "Choose your insurance type.";
   } else {
     // remove the form
     const form = document.querySelector("form");
@@ -125,7 +134,8 @@ function priceCalculator(chosenModel, chosenYear, chosenInsuranceT) {
   // price =
   price = price * insuranceRatio;
 
-  // return price;
+  // show the final price
+  document.querySelector("#finalPrice").textContent = price;
 }
 
 // loading ...............................................
